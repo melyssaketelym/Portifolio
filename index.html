@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Melyssa Ketelym - Portfólio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Inter', sans-serif;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background: linear-gradient(120deg, #0f1117, #1a1d27);
+      color: #fff;
+    }
+
+    header {
+      background-color: #0f1117;
+      padding: 20px 5%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: relative;
+    }
+
+    .logo {
+      color: #00a3ff;
+      font-weight: 700;
+    }
+
+    nav {
+      display: flex;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 25px;
+    }
+
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .menu-toggle {
+      display: none;
+    }
+
+    @media (max-width: 768px) {
+      .menu-toggle {
+        display: flex;
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        width: 35px;
+        height: 28px;
+        cursor: pointer;
+        z-index: 1100;
+        flex-direction: column;
+        justify-content: space-between;
+      }
+
+      .menu-toggle span {
+        display: block;
+        height: 4px;
+        width: 100%;
+        background: white;
+        border-radius: 2px;
+        transition: all 0.3s ease;
+      }
+
+      .menu-toggle.active span:nth-child(1) {
+        transform: rotate(45deg) translate(6px, 6px);
+      }
+
+      .menu-toggle.active span:nth-child(2) {
+        opacity: 0;
+      }
+
+      .menu-toggle.active span:nth-child(3) {
+        transform: rotate(-45deg) translate(7px, -7px);
+      }
+
+      .menu-toggle:hover span {
+        background: #00a3ff;
+      }
+
+      nav ul {
+        display: none;
+        flex-direction: column;
+        background: #1a1d27;
+        position: absolute;
+        top: 70px;
+        right: 20px;
+        width: 200px;
+        padding: 20px;
+        border-radius: 8px;
+        z-index: 1200;
+      }
+
+      nav ul.active {
+        display: flex;
+      }
+
+      .hero {
+        flex-direction: column-reverse;
+        text-align: center;
+      }
+    }
+
+    .hero {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      padding: 50px 5%;
+    }
+
+    .hero-text {
+      max-width: 500px;
+      animation: fadeInLeft 1s ease-in-out;
+    }
+
+    .hero-text h1 {
+      font-size: 48px;
+      margin-bottom: 20px;
+    }
+
+    .hero-text p {
+      font-size: 18px;
+      color: #ccc;
+      margin-bottom: 20px;
+    }
+
+    .blue-btn {
+      background-color: #0066ff;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 30px;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+
+    .hero-img {
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-img::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 350px;
+      height: 350px;
+      background: radial-gradient(circle, rgba(0,163,255,0.5), transparent 70%);
+      border-radius: 50%;
+      filter: blur(60px);
+      z-index: -1;
+    }
+
+    .hero-img img {
+      max-width: 300px;
+      border-radius: 10px;
+      animation: fadeInRight 1s ease-in-out;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.4);
+    }
+
+    .info-section {
+      background-color: #1a1d27;
+      padding: 60px 5%;
+    }
+
+    .info-section h2 {
+      margin-bottom: 20px;
+    }
+
+    .columns {
+      display: flex;
+      justify-content: space-between;
+      gap: 30px;
+      flex-wrap: wrap;
+    }
+
+    .column {
+      flex: 1;
+      min-width: 250px;
+    }
+
+    .social-links a {
+      color: #fff;
+      margin-right: 15px;
+      font-size: 22px;
+      text-decoration: none;
+    }
+
+    .social-links a:hover {
+      color: #00a3ff;
+      transition: color 0.3s ease;
+    }
+
+    .project-link {
+      display: block;
+      margin-top: 10px;
+      color: #00a3ff;
+      text-decoration: underline;
+    }
+
+    .skills-section, .contact-section {
+      padding: 60px 5%;
+      background-color: #1a1d27;
+    }
+
+    .skills-section h2,
+    .contact-section h2 {
+      font-size: 32px;
+      margin-bottom: 30px;
+      color: #00a3ff;
+    }
+
+    .skills-icons {
+      display: flex;
+      gap: 25px;
+      font-size: 36px;
+      flex-wrap: wrap;
+    }
+
+    .skills-icons i {
+      transition: transform 0.3s ease;
+    }
+
+    .skills-icons i:hover {
+      transform: scale(1.2);
+    }
+
+    /* NOVA CENTRALIZAÇÃO DO FORMULÁRIO */
+    .contact-section {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 400px;
+      flex-direction: column;
+    }
+
+    form {
+      max-width: 500px;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    form input,
+    form textarea {
+      background-color: #2b2e3c;
+      border: none;
+      border-radius: 8px;
+      padding: 12px;
+      color: white;
+      resize: none;
+    }
+
+    form button {
+      padding: 12px;
+      border: none;
+      background-color: #00a3ff;
+      color: white;
+      border-radius: 8px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    form button:hover {
+      background-color: #007fd4;
+    }
+
+    .whatsapp-float {
+      position: fixed;
+      width: 60px;
+      height: 60px;
+      bottom: 20px;
+      right: 20px;
+      background-color: #25d366;
+      color: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 30px;
+      box-shadow: 2px 2px 5px rgba(0,0,0,0.3);
+      z-index: 1000;
+      animation: bounce 2s infinite;
+      text-decoration: none;
+    }
+
+    .whatsapp-float:hover {
+      background-color: #128c4a;
+    }
+
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+
+    @keyframes fadeInLeft {
+      from { opacity: 0; transform: translateX(-50px); }
+      to { opacity: 1; transform: translateX(0); }
+    }
+
+    @keyframes fadeInRight {
+      from { opacity: 0; transform: translateX(50px); }
+      to { opacity: 1; transform: translateX(0); }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">&lt;/&gt; Melyssa Ketelym</div>
+    <div id="menu-toggle" class="menu-toggle" onclick="toggleMenu(this)">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+    <nav>
+      <ul id="menu">
+        <li><a href="#inicio">Início</a></li>
+        <li><a href="#habilidades">Habilidades</a></li>
+        <li><a href="#projetos">Portfólio</a></li>
+        <li><a href="#contato">Contato</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section id="inicio" class="hero">
+    <div class="hero-text">
+      <h1>Sou Melyssa,<br />Desenvolvedora Web</h1>
+      <p>Desenvolvo websites modernos, rápidos e acessíveis, com foco na experiência do usuário.</p>
+      <button class="blue-btn" aria-label="Scroll para baixo">↓</button>
+    </div>
+    <div class="hero-img">
+      <img src="IMG_20250608_182048_116-removebg-preview.png" alt="Foto da Melyssa Ketelym" />
+    </div>
+  </section>
+
+  <section class="info-section" id="projetos">
+    <div class="columns">
+      <div class="column">
+        <h2>Sobre Mim</h2>
+        <p>Sou apaixonada por desenvolvimento web e busco sempre evoluir com as melhores práticas de design e programação. Também tenho familiaridade com linguagens de programação como Python e JavaScript.</p>
+      </div>
+      <div class="column">
+        <h2>Meus Projetos</h2>
+        <p>Confira meu portfólio com trabalhos realizados para clientes reais e projetos pessoais em destaque.</p>
+        <a class="project-link" href="https://melyssaketelym.github.io/Eixo-de-tecnologia-AFS/" target="_blank" rel="noopener noreferrer">Ver Projeto AFS →</a>
+      </div>
+      <div class="column">
+        <h2>Redes Sociais</h2>
+        <div class="social-links">
+          <a href="https://www.linkedin.com/in/melyssa-ketelym-964997331?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin"></i></a>
+          <a href="https://github.com/melyssaketelym?tab=repositories" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i></a>
+          <a href="https://www.instagram.com/melyssasantz_?igsh=eGowcW8zbXA1MjYw" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i></a>
+          <a href="https://wa.me/558588453848" target="_blank" rel="noopener noreferrer"><i class="fab fa-whatsapp"></i></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="skills-section" id="habilidades">
+    <h2>Minhas Habilidades</h2>
+    <div class="skills-icons">
+      <i class="fab fa-html5" style="color:#e34f26;" title="HTML5"></i>
+      <i class="fab fa-css3-alt" style="color:#1572B6;" title="CSS3"></i>
+      <i class="fab fa-js" style="color:#f7df1e;" title="JavaScript"></i>
+      <i class="fab fa-python" style="color:#306998;" title="Python"></i>
+    </div>
+  </section>
+
+  <section class="contact-section" id="contato">
+    <h2>Fale Comigo</h2>
+    <form action="https://formsubmit.co/melyssaketelym8@gmail.com" method="POST">
+      <input type="text" name="nome" placeholder="Seu nome" required />
+      <input type="email" name="email" placeholder="Seu e-mail" required />
+      <textarea name="mensagem" rows="5" placeholder="Sua mensagem..." required></textarea>
+      <button type="submit">Enviar</button>
+    </form>
+  </section>
+
+  <footer style="background-color: #0f1117; padding: 40px 5%; text-align: center;">
+    <p style="margin-bottom: 15px; font-weight: 600;">Siga-me nas redes sociais</p>
+    <div style="font-size: 24px;">
+      <a href="https://www.linkedin.com/in/melyssa-ketelym-964997331?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank" rel="noopener noreferrer" style="color:#fff; margin: 0 10px;"><i class="fab fa-linkedin"></i></a>
+      <a href="https://github.com/melyssaketelym?tab=repositories" target="_blank" rel="noopener noreferrer" style="color:#fff; margin: 0 10px;"><i class="fab fa-github"></i></a>
+      <a href="https://www.instagram.com/melyssasantz_?igsh=eGowcW8zbXA1MjYw" target="_blank" rel="noopener noreferrer" style="color:#fff; margin: 0 10px;"><i class="fab fa-instagram"></i></a>
+      <a href="https://wa.me/558588453848" target="_blank" rel="noopener noreferrer" style="color:#fff; margin: 0 10px;"><i class="fab fa-whatsapp"></i></a>
+    </div>
+    <p style="margin-top: 20px; font-size: 14px; color: #888;">© 2025 Melyssa Ketelym. Todos os direitos reservados.</p>
+  </footer>
+
+  <a href="https://wa.me/558588453848" class="whatsapp-float" target="_blank" aria-label="WhatsApp" rel="noopener noreferrer">
+    <i class="fab fa-whatsapp"></i>
+  </a>
+
+  <script>
+    function toggleMenu(element) {
+      const menu = document.getElementById('menu');
+      menu.classList.toggle('active');
+      element.classList.toggle('active');
+    }
+
+    document.querySelectorAll('#menu li a').forEach(link => {
+      link.addEventListener('click', e => {
+        e.preventDefault();
+
+        const targetID = link.getAttribute('href').substring(1);
+        const targetSection = document.getElementById(targetID);
+
+        if (targetSection) {
+          targetSection.scrollIntoView({ behavior: 'smooth' });
+        }
+
+        const menu = document.getElementById('menu');
+        const toggle = document.getElementById('menu-toggle');
+        menu.classList.remove('active');
+        toggle.classList.remove('active');
+      });
+    });
+  </script>
+</body>
+</html>
+
