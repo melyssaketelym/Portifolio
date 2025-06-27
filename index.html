@@ -14,6 +14,10 @@
       font-family: 'Inter', sans-serif;
     }
 
+    html, body {
+      overflow-x: hidden; /* Evita rolagem horizontal */
+    }
+
     html {
       scroll-behavior: smooth;
     }
@@ -102,8 +106,8 @@
         background: #1a1d27;
         position: absolute;
         top: 70px;
-        right: 20px;
-        width: 200px;
+        right: 10px; /* Ajustado para dar margem na direita */
+        max-width: 90vw; /* Limita largura para evitar overflow */
         padding: 20px;
         border-radius: 8px;
         z-index: 1200;
@@ -250,7 +254,7 @@
       transform: scale(1.2);
     }
 
-    /* NOVA CENTRALIZAÇÃO DO FORMULÁRIO */
+    /* CENTRALIZAÇÃO DO FORMULÁRIO */
     .contact-section {
       display: flex;
       justify-content: center;
@@ -340,10 +344,10 @@
     </div>
     <nav>
       <ul id="menu">
-        <li><a href="#inicio">Início</a></li>
-        <li><a href="#habilidades">Habilidades</a></li>
-        <li><a href="#projetos">Portfólio</a></li>
-        <li><a href="#contato">Contato</a></li>
+        <li><a href="#inicio" target="_self">Início</a></li>
+        <li><a href="#habilidades" target="_self">Habilidades</a></li>
+        <li><a href="#projetos" target="_self">Portfólio</a></li>
+        <li><a href="#contato" target="_self">Contato</a></li>
       </ul>
     </nav>
   </header>
@@ -375,7 +379,7 @@
         <div class="social-links">
           <a href="https://www.linkedin.com/in/melyssa-ketelym-964997331?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin"></i></a>
           <a href="https://github.com/melyssaketelym?tab=repositories" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i></a>
-          <a href="https://www.instagram.com/melyssasantz_?igsh=eGowcW8zbXA1MjYw" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i></a>
+          <a href="#" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i></a>
           <a href="https://wa.me/558588453848" target="_blank" rel="noopener noreferrer"><i class="fab fa-whatsapp"></i></a>
         </div>
       </div>
@@ -407,7 +411,7 @@
     <div style="font-size: 24px;">
       <a href="https://www.linkedin.com/in/melyssa-ketelym-964997331?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank" rel="noopener noreferrer" style="color:#fff; margin: 0 10px;"><i class="fab fa-linkedin"></i></a>
       <a href="https://github.com/melyssaketelym?tab=repositories" target="_blank" rel="noopener noreferrer" style="color:#fff; margin: 0 10px;"><i class="fab fa-github"></i></a>
-      <a href="https://www.instagram.com/melyssasantz_?igsh=eGowcW8zbXA1MjYw" target="_blank" rel="noopener noreferrer" style="color:#fff; margin: 0 10px;"><i class="fab fa-instagram"></i></a>
+      <a href="#" target="_blank" rel="noopener noreferrer" style="color:#fff; margin: 0 10px;"><i class="fab fa-instagram"></i></a>
       <a href="https://wa.me/558588453848" target="_blank" rel="noopener noreferrer" style="color:#fff; margin: 0 10px;"><i class="fab fa-whatsapp"></i></a>
     </div>
     <p style="margin-top: 20px; font-size: 14px; color: #888;">© 2025 Melyssa Ketelym. Todos os direitos reservados.</p>
@@ -444,4 +448,5 @@
   </script>
 </body>
 </html>
+
 
