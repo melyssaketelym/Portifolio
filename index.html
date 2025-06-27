@@ -15,21 +15,23 @@
     }
 
     html, body {
-      overflow-x: hidden; /* Evita rolagem horizontal */
-    }
-
-    html {
+      max-width: 100vw;
+      overflow-x: hidden;
       scroll-behavior: smooth;
-    }
-
-    body {
       background: linear-gradient(120deg, #0f1117, #1a1d27);
       color: #fff;
     }
 
+    header, .info-section, .skills-section, .contact-section, footer {
+      padding-left: 5%;
+      padding-right: 5%;
+      box-sizing: border-box;
+    }
+
     header {
       background-color: #0f1117;
-      padding: 20px 5%;
+      padding-top: 20px;
+      padding-bottom: 20px;
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -106,11 +108,14 @@
         background: #1a1d27;
         position: absolute;
         top: 70px;
-        right: 10px; /* Ajustado para dar margem na direita */
-        max-width: 90vw; /* Limita largura para evitar overflow */
+        right: 20px;
+        width: 90vw;
+        max-width: 250px;
         padding: 20px;
         border-radius: 8px;
+        box-sizing: border-box;
         z-index: 1200;
+        word-wrap: break-word;
       }
 
       nav ul.active {
@@ -181,7 +186,9 @@
     }
 
     .hero-img img {
-      max-width: 300px;
+      max-width: 100%;
+      height: auto;
+      display: block;
       border-radius: 10px;
       animation: fadeInRight 1s ease-in-out;
       box-shadow: 0 10px 20px rgba(0,0,0,0.4);
@@ -189,7 +196,8 @@
 
     .info-section {
       background-color: #1a1d27;
-      padding: 60px 5%;
+      padding-top: 60px;
+      padding-bottom: 60px;
     }
 
     .info-section h2 {
@@ -213,11 +221,11 @@
       margin-right: 15px;
       font-size: 22px;
       text-decoration: none;
+      transition: color 0.3s ease;
     }
 
     .social-links a:hover {
       color: #00a3ff;
-      transition: color 0.3s ease;
     }
 
     .project-link {
@@ -228,7 +236,8 @@
     }
 
     .skills-section, .contact-section {
-      padding: 60px 5%;
+      padding-top: 60px;
+      padding-bottom: 60px;
       background-color: #1a1d27;
     }
 
@@ -254,7 +263,7 @@
       transform: scale(1.2);
     }
 
-    /* CENTRALIZAÇÃO DO FORMULÁRIO */
+    /* Centralizar formulário */
     .contact-section {
       display: flex;
       justify-content: center;
@@ -344,10 +353,10 @@
     </div>
     <nav>
       <ul id="menu">
-        <li><a href="#inicio" target="_self">Início</a></li>
-        <li><a href="#habilidades" target="_self">Habilidades</a></li>
-        <li><a href="#projetos" target="_self">Portfólio</a></li>
-        <li><a href="#contato" target="_self">Contato</a></li>
+        <li><a href="#inicio">Início</a></li>
+        <li><a href="#habilidades">Habilidades</a></li>
+        <li><a href="#projetos">Portfólio</a></li>
+        <li><a href="#contato">Contato</a></li>
       </ul>
     </nav>
   </header>
